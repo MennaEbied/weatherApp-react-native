@@ -1,5 +1,6 @@
 import { theme } from "../theme";
-import { StyleSheet, Text, Pressable } from "react-native";
+import { StyleSheet, Text, Pressable, Platform } from "react-native";
+import * as Haptics from "expo-haptics";
 
 type Props = {
   title: string;
@@ -7,11 +8,26 @@ type Props = {
 };
 
 export function SearchButton({ title, onPress }: Props) {
-  return (
-    <Pressable onPress={onPress} style={styles.button}>
-      <Text style={styles.text}>{title}</Text>
-    </Pressable>
-  );
+
+  const handlePress = ()=>{
+    if(Platform.OS !=="web"){
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+    }
+        onPress();
+    }
+  return(
+    <Pressable 
+        onPress={handlePress} 
+        style={(state)=>{
+          if(state.pressed){
+              return [styles.button,styles.buttonPressed];
+          }
+          return styles.button;
+      }}>
+        <Text style={styles.text}>{title}</Text>
+      </Pressable>
+  )
+  
 }
 
 const styles = StyleSheet.create({
@@ -25,8 +41,11 @@ const styles = StyleSheet.create({
     paddingHorizontal: 18,
     paddingVertical: 12,
     borderRadius: 50,
-    backgroundColor:theme.color5,
-    marginTop:30,
-    width:200,
+    backgroundColor:theme.colorYellow,
+    marginTop:10,
+    width:250,
   },
+  buttonPressed:{
+    backgroundColor:theme.colorBrightYellow
+  }
 });

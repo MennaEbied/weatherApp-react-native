@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
   },
   cityName: { 
     fontSize:32,
-     fontWeight: 'bold' 
+     fontWeight: 'bold',
+     textAlign:"center" 
     },
   temperature: {
      fontSize: 36,
@@ -94,7 +95,7 @@ const styles = StyleSheet.create({
     },
   condition: {
      fontSize: 28, 
-     color: theme.colorGrey 
+     color: theme.colorGrey,
     },
    
     

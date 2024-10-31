@@ -1,4 +1,7 @@
-import { Stack } from "expo-router";
+import { Stack, Link } from "expo-router";
+import AntDesign from '@expo/vector-icons/AntDesign';
+import { Pressable } from "react-native";
+
 
 export default function Layout() {
   return (
@@ -11,10 +14,17 @@ export default function Layout() {
             }} 
         />
         <Stack.Screen 
-          name="weather" 
+          name="weather"
           options={{
             title:'weather',
-            
+            animation:"fade",
+            headerLeft:()=>(
+              <Link  href="./" asChild>
+              <Pressable hitSlop={20}style={{marginRight:18}}>
+                <AntDesign name="arrowleft" size={24} color="black" />
+              </Pressable>
+              </Link>
+            )
 
           }} 
         />

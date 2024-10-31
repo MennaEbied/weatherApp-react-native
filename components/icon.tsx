@@ -8,7 +8,7 @@ export function IconImage() {
   return (
     <Image
       source={require("../assets/umbrella.webp")}
-      style={{ width: imageSize, height: imageSize,marginEnd:160,marginTop:30 }}
+      style={{ width: imageSize, height: imageSize,marginEnd:160,marginTop:60 }}
     />
   );
 }

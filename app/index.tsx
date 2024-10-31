@@ -1,5 +1,5 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View ,TextInput } from "react-native";
+import { StyleSheet, View ,TextInput } from "react-native";
 import React , {useState} from "react";
 import {useRouter} from "expo-router";
 import { LogoImage } from "../components/logoImage";
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
     flexDirection:"row",
     alignItems:"center",
     margin:10,
-    height:40,
+    height:50,
     borderWidth:1,
     borderRadius:25,
     width:"100%",
